@@ -36,47 +36,15 @@ function User() {
 	};
 
 	return (
-		<div className="md:bg-base ">
-			{/* <div id="particle-container z-10 h-sreen">
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-				<div className="particle"></div>
-			</div> */}
+		<div className="md:bg-base bg-base h-full ">
 			<NavBar fullname={full_name} darclick={cerrarSesion}></NavBar>
 			{/* //* DASHBOARD */}
-			<div className="grid place-items-center bg-base">
+			<div className="grid place-items-center ">
 				<h1 className="text-4xl font-bold mt-6 mb-6">Mis Recetas</h1>
 			</div>
 
-			<div className="w-9/12 mx-auto ">
-				<div className="recipes-container grid md:grid-cols-4 gap-7 bg-base pb-20">
+			<div className="w-9/12 mx-auto bg-base mb-20">
+				<div className="recipes-container grid md:grid-cols-4 gap-7  ">
 					{recipes.map((recipe) => (
 						<RecipeCardUser recipe={recipe} key={recipe._id} />
 					))}

@@ -36,13 +36,13 @@ function VerReceta() {
 	));
 
 	return (
-		<div>
-			<div className="navbar bg-base-100 sticky top-0 z-[100]">
+		<div className="overflow-y-hidden">
+			<div className="navbar bg-secondary sticky top-0 z-[100]">
 				<button className="btn btn-ghost normal-case text-xl">
 					<Link to="/">Inicio</Link>
 				</button>
 			</div>
-			<div className="container mx-auto h-full p-3 " id="receta">
+			<div className="container mx-auto h-full  " id="receta">
 				<div className="hero min-h-screen bg-base-200">
 					<div className="hero-content flex-col lg:flex-row">
 						<img

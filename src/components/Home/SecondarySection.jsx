@@ -38,17 +38,22 @@ function SecondarySection() {
 		<div className="p-20 container mx-auto px-4 w-9/12">
 			<div className="container mx-auto  m-5 relative">
 				<div className="flex items-center justify-center sticky top-0">
-					<button
-						onClick={() => {
-							console.log("Limpiar busqueda");
-							eliminarBusqueda();
-						}}
-						className="p-2.5 mr-2 text-sm font-medium text-white rounded-lg border btn btn-secondary "
+					<div
+						className="tooltip tooltip-secondary "
+						data-tip="Limpiar búsqueda"
 					>
-						<AiOutlineClear className="text-slate-600 text-2xl font-bold " />
-					</button>
+						<button
+							onClick={() => {
+								console.log("Limpiar búsqueda");
+								eliminarBusqueda();
+							}}
+							className="p-2.5 mr-2 text-sm font-medium text-white rounded-lg border btn btn-secondary "
+						>
+							<AiOutlineClear className="text-slate-600 text-2xl font-bold " />
+						</button>
+					</div>
 					<label htmlFor="simple-search" className="sr-only">
-						Search
+						Busca una receta
 					</label>
 
 					<div className="relative ">
@@ -61,21 +66,26 @@ function SecondarySection() {
 							onChange={handleChange}
 							id="simple-search"
 							className=" input text-base rounded-lg  block w-full pl-10 p-2.5 max-w-xs "
-							placeholder="Search"
+							placeholder="Busca una receta"
 							name="search"
 							autoComplete="off"
 						/>
 					</div>
-					<button
-						onClick={() => {
-							searchRecipes(word);
-						}}
-						className="p-2.5 ml-2 text-sm font-medium text-white rounded-lg border btn btn-info"
+					<div
+						className="tooltip tooltip-info "
+						data-tip="Limpiar búsqueda"
 					>
-						<AiOutlineSearch className="text-slate-600 text-2xl font-bold" />
+						<button
+							onClick={() => {
+								searchRecipes(word);
+							}}
+							className="p-2.5 ml-2 text-sm font-medium text-white rounded-lg border btn btn-info"
+						>
+							<AiOutlineSearch className="text-slate-600 text-2xl font-bold" />
 
-						<span className="sr-only">Busca una receta</span>
-					</button>
+							<span className="sr-only">Busca una receta</span>
+						</button>
+					</div>
 				</div>
 			</div>
 			{recipes.length <= 0 ? (

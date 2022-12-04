@@ -20,10 +20,10 @@ function RecipeCardUser({ recipe }) {
 			<h2 className="card-title pl-4 mt-1 text-ellipsis md:text-clip">
 				{recipe.recipe_name}
 			</h2>
-			<p className="mb-4 p-4 text-ellipsis md:text-clip">
+			<p className="mb-4 p-4 text-ellipsis md:truncate">
 				{recipe.description}
 			</p>
-			<div className="card-actions justify-end mb-4">
+			<div className="card-actions justify-end mb-4 mr-2">
 				<button
 					className="btn btn-ghost hover:bg-error border-none base-content "
 					onClick={() => {

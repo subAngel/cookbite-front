@@ -41,7 +41,7 @@ const PrincipalSection = () => {
 						<button className="btn ">
 							<Link to="/login">Crea una receta</Link>
 						</button>
-						<button className="btn btn-accent ml-20">
+						<button className="btn bg-green-400 hover:bg-green-500 border-none ml-20">
 							<Link to="/signup">Registrarse</Link>
 						</button>
 					</div>

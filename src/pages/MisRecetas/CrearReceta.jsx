@@ -26,12 +26,19 @@ function CrearReceta() {
 	const [ing_description, setIng_description] = useState("");
 	const [input_pasos, setInput_pasos] = useState("");
 
+	// banderas
+	const [fileExist, setFileExist] = useState(false);
+	const [btnAddIng, setBtnAddIng] = useState(false);
+	const [btnAddPaso, setBtnAddPaso] = useState(false);
+	const [allFields, setAllFields] = useState(false);
+
 	const handleChange = (e) => {
 		if (e.target.name === "recipe_name") {
 			setRecipe_name(e.target.value);
 		}
 		if (e.target.name === "image") {
 			setFile(e.target.files[0]);
+			setFileExist(true);
 		}
 		if (e.target.name === "description") {
 			setDescripcion(e.target.value);
@@ -56,6 +63,18 @@ function CrearReceta() {
 		}
 		if (e.target.name === "paso_descripcion") {
 			setInput_pasos(e.target.value);
+		}
+		if (ing_cantidad !== "" && ing_description !== "") {
+			setBtnAddIng(true);
+		}
+		if (input_pasos !== "") {
+			setBtnAddPaso(true);
+		}
+		if (
+			(recipe_name, descripcion, ingredientes, pasos) !== "" &&
+			(porciones, tiempo) !== 0
+		) {
+			setAllFields(true);
 		}
 	};
 	useEffect(() => {
@@ -92,6 +111,9 @@ function CrearReceta() {
 		e.preventDefault();
 		let aux = ing_cantidad + "  |  " + ing_description + "\n";
 		setIngredientes(ingredientes + aux);
+		setBtnAddIng(false);
+		setIng_cantidad("");
+		setIng_description("");
 	};
 
 	const handlePaso = (e) => {
@@ -99,6 +121,8 @@ function CrearReceta() {
 		let aux2 = input_pasos + "\n";
 		console.log(input_pasos);
 		setPasos(pasos + aux2);
+		setInput_pasos("");
+		setBtnAddPaso(false);
 	};
 
 	return (
@@ -120,6 +144,7 @@ function CrearReceta() {
 							className="input input-lg w-full text-3xl"
 							id="receta"
 							name="recipe_name"
+							autoComplete="off"
 							type="text"
 							placeholder="Titulo: Chilaquiles Rojos"
 						/>
@@ -190,6 +215,7 @@ function CrearReceta() {
 							<div className="my-auto mr-2">
 								<input
 									onChange={handleChange}
+									value={ing_cantidad}
 									type="number"
 									name="ing_cantidad"
 									placeholder="8"
@@ -199,14 +225,20 @@ function CrearReceta() {
 							<div className="my-auto mr-2">
 								<input
 									onChange={handleChange}
+									value={ing_description}
 									type="text"
 									name="ing_descripcion"
 									placeholder="Tazas de agua"
 									className="input w-56"
+									autoComplete="off"
 								/>
 							</div>
 							<button
-								className="btn btn-square my-auto"
+								className={
+									btnAddIng
+										? "btn btn-square my-auto"
+										: "btn btn-square my-auto btn-disabled"
+								}
 								onClick={handleIngrediente}
 							>
 								<AiOutlinePlus className="text-xl " />
@@ -233,16 +265,22 @@ function CrearReceta() {
 							<div className="w-3/4 my-auto mr-2 justify-items-center">
 								<input
 									onChange={handleChange}
+									value={input_pasos}
 									type="text"
 									name="paso_descripcion"
 									className="input w-full"
 									placeholder="Agregar en un tazón la harina..."
+									autoComplete="off"
 								/>
 							</div>
 
 							<div className="w-1/4 my-auto">
 								<button
-									className="btn btn-square "
+									className={
+										btnAddPaso
+											? "btn btn-square"
+											: "btn btn-square btn-disabled"
+									}
 									onClick={handlePaso}
 								>
 									<AiOutlinePlus className="text-xl " />
@@ -267,7 +305,11 @@ function CrearReceta() {
 					</div>
 
 					<button
-						className="btn btn-primary w-full"
+						className={
+							allFields
+								? "btn btn-primary w-full"
+								: "btn btn-primary w-full btn-disabled"
+						}
 						type="button"
 						onClick={handleSubmit}
 					>
