@@ -5,8 +5,9 @@ import { Link, useParams } from "react-router-dom";
 var node = document.getElementById("content");
 var receta = document.getElementById("receta-body");
 
-var nombreAutor = "";
 var nombreReceta = "";
+var nombreAutor = "";
+
 
 const URL_RECIPE = "https://cookbite-bk-qas.onrender.com";
 
