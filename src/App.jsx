@@ -15,6 +15,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
+					<Route path="/cookbite-f/" element={<Home />} />
 					<Route path="/signup" element={<SignUpPage />} />
 					<Route path="/login" element={<LoginPage />} />
 
