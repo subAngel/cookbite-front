@@ -73,7 +73,7 @@ function SecondarySection() {
 					</div>
 					<div
 						className="tooltip tooltip-info "
-						data-tip="Limpiar búsqueda"
+						data-tip="Iniciar búsqueda"
 					>
 						<button
 							onClick={() => {
@@ -91,7 +91,7 @@ function SecondarySection() {
 			{recipes.length <= 0 ? (
 				<div className="flex justify-center h-28">
 					<h1 className="mt-34 mb-2 text-2xl font-extrabold  text-center">
-						No se encontraron coincidencias con la palabra {word}
+						No se encontraron coincidencias con la palabra: {word}
 					</h1>
 				</div>
 			) : (
