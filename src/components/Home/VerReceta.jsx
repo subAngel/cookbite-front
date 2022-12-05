@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 var node = document.getElementById("content");
 var receta = document.getElementById("receta-body");
 
-const URL_RECIPE = "http://localhost:4000";
+const URL_RECIPE = "https://cookbite-bk-qas.onrender.com";
 function VerReceta() {
 	const params = useParams();
 	const [recipe, setRecipe] = useState({});

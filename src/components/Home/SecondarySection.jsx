@@ -4,7 +4,7 @@ import { AiOutlineSearch, AiOutlineClear } from "react-icons/ai";
 import { getAllRecipesRequest, getRecipeByName } from "../../api/api.js";
 import "../../pages/MisRecetas/particles.scss";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://cookbite-bk-qas.onrender.com";
 function SecondarySection() {
 	const navigate = useNavigate();
 	const [word, setWord] = useState("");

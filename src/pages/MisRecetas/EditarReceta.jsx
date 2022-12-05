@@ -10,7 +10,7 @@ import Cookies from "universal-cookie";
 import "./form.css";
 import { useRecipes } from "../../context/RecipeProvides";
 const cookies = new Cookies();
-const API_URL = "http://localhost:4000";
+const API_URL = "https://cookbite-bk-qas.onrender.com";
 
 function CrearReceta() {
 	const username = cookies.get("username");
