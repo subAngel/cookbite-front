@@ -18,6 +18,7 @@ function Singup() {
 	const [full_name, setFull_name] = useState("");
 	const [email, setEmail] = useState("");
 	const [hasError, setHasError] = useState(false);
+	const [checkFields, setCheckFields] = useState(false);
 
 	const notifyError = (text) =>
 		toast.error(text, {
@@ -71,12 +72,10 @@ function Singup() {
 			}
 		}
 		if (name === "email") {
-			console.log(name, value);
 			setEmail(value);
-			setHasError(false);
 		}
 		if (name === "full_name") {
-			let regex = new RegExp("^[a-zA-Z ]+$");
+			let regex = new RegExp("[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$");
 			if (regex.test(value)) {
 				console.log(name, value);
 				setHasError(false);
@@ -85,6 +84,9 @@ function Singup() {
 				setHasError(true);
 				notifyError("El nombre completo del usuario no debe tener numeros");
 			}
+		}
+		if (username !== "" && full_name !== "" && email !== "" && password !== "") {
+			setCheckFields(true);
 		}
 	}
 
@@ -136,7 +138,11 @@ function Singup() {
 					param={hasError}
 				/>
 				<button
-					className="group relative w-full flex justify-center py-4 px-4 border border-transparent btn btn-primary"
+					className={
+						checkFields
+							? "group relative w-full flex justify-center py-4 px-4 border border-transparent btn btn-primary"
+							: "group relative w-full flex justify-center py-4 px-4 border border-transparent btn btn-primary btn-disabled"
+					}
 					onClick={() => {
 						crearUsuario();
 

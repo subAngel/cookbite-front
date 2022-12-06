@@ -12,6 +12,7 @@ class Sesion extends Component {
 			username: "",
 			password: "",
 		},
+		checkFields: false,
 	};
 
 	iniciarSesion = async (e) => {
@@ -50,8 +51,15 @@ class Sesion extends Component {
 				...this.state.form,
 				[e.target.name]: e.target.value,
 			},
+			checkFields: this.checarCampos,
 		});
 		// console.log(this.state.form);
+	};
+
+	checarCampos = () => {
+		if (this.state.form.password !== "" && this.state.form.username !== "") {
+			return true;
+		}
 	};
 
 	componentDidMount() {
@@ -88,7 +96,11 @@ class Sesion extends Component {
 					</div>
 				</div>
 				<button
-					className="group relative w-full flex justify-center py-2 px-4 border border-transparent btn btn-primary"
+					className={
+						this.state.checkFields
+							? "group relative w-full flex justify-center py-2 px-4 border border-transparent btn btn-primary"
+							: "group relative w-full flex justify-center py-2 px-4 border border-transparent btn btn-primary btn-disabled"
+					}
 					onClick={this.iniciarSesion}
 				>
 					Iniciar Sesión
