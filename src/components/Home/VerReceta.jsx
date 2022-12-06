@@ -75,8 +75,8 @@ function VerReceta() {
 					Guardar Receta
 				</button>
 			</div>
-			<div className="container mx-auto h-full  ">
-				<div className="hero min-h-screen bg-base-200">
+			<div className="container mx-auto ">
+				<div className="hero pt-12 h-full my-auto">
 					<div className="hero-content flex-col lg:flex-row " id="receta">
 						<img
 							src={URL_RECIPE + recipe.path}
