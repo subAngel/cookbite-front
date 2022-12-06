@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import html2pdf from "html2pdf.js";
 
 var node = document.getElementById("content");
 var receta = document.getElementById("receta-body");
